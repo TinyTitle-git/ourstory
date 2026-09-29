@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#070b1b" />
+    <title>ยิ้มหน้ารักจังง — เติ้ล × เฟิร์น</title>
+    <link rel="preload" href="audio/AUDIO_LIBRARY_01.mp3" as="audio" type="audio/mpeg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Sans+Thai:wght@400;500;600&family=Noto+Serif+Thai:wght@400;500;600&family=Prata&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="thai-font-fix.css?v=20260923-desktop-safe-area-56" />
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="stars" aria-hidden="true"></div>
+    <button class="back-button" id="backButton" aria-label="ย้อนกลับไปฉากก่อนหน้า">←</button>
+    <button class="audio-toggle" id="audioToggle" aria-label="ปิดเสียง" hidden>♬</button>
+    <main id="story">
+      <section class="scene opening" id="scene-1" data-scene="1">
+        <div class="opening-glow"></div>
+        <p class="eyebrow reveal">A STORY WRITTEN BY TWO HEARTS</p>
+        <h1 class="reveal delay-1">เติ้ล <span>×</span> เฟิร์น</h1>
+        <p class="subtitle reveal delay-2">เรื่องราวของเราสองคน</p>
+        <button class="primary-button reveal delay-3" id="startStory">เริ่มเรื่องราวของเรา <span>→</span></button>
+        <p class="scroll-hint reveal delay-3">แตะเพื่อเริ่มเสียงและเรื่องราว</p>
+      </section>
+
+      <section class="scene message-scene" id="scene-2" data-scene="2">
+        <p class="date">26 มิถุนายน 2563</p>
+        <div class="chat-card"><span class="chat-label">ข้อความแรก</span><p id="typedMessage" aria-label="ยิ้มหน้ารักจังง"></p><span class="cursor">|</span></div>
+        <div class="copy scene2-lower-copy"><p><span class="scene2-lower-line">ก่อนที่เราจะได้เจอกัน...</span><br /><span class="scene2-lower-line">ก่อนที่เราจะรู้ด้วยซ้ำว่า วันหนึ่งเราจะกลายเป็น “เรา”</span></p><p><span class="scene2-lower-line">ใครจะรู้ว่า ข้อความสั้น ๆ แค่ประโยคเดียว จะพาเรามาถึงวันนี้</span></p></div>
+      </section>
+
+      <section class="scene photo-scene" id="scene-3" data-scene="3">
+        <p class="date">29 กรกฎาคม 2563</p><p class="eyebrow">THE FIRST DAY</p>
+        <button class="photo-frame cinematic-photo" data-photo="วันแรกของเรา" data-photo-src="media/photo-system-update/scene-03.jpg" aria-label="เปิดดูรูปวันแรกของเรา"><img src="media/photo-system-update/scene-03.jpg" alt="วันแรกของเรา" loading="lazy" /><small>แตะเพื่อขยาย</small></button>
+        <div class="copy"><p>แล้ววันนั้นก็มาถึง...</p><h2>วันที่เราได้เจอกันครั้งแรก<br />และเป็นวันที่เราเริ่มต้นคำว่า <em>“เรา”</em></h2></div>
+      </section>
+
+      <section class="scene movie-scene" id="scene-4" data-scene="4">
+        <p class="date">2 สิงหาคม 2563</p><div class="film-strip"><i></i><div><p class="eyebrow">OUR FIRST MOVIE</p><h2>Peninsula</h2><p>ฝ่านรกซอมบี้คลั่ง</p></div><i></i></div><button class="movie-photo cinematic-photo" data-photo="วันที่เราดู Peninsula ด้วยกัน" data-photo-src="media/photo-system-update/scene-04.png" aria-label="เปิดดูรูปตั๋วหนัง Peninsula"><img src="media/photo-system-update/scene-04.png" alt="ตั๋วหนัง Peninsula ของเรา" loading="lazy" /><small>รูปของเราวันนั้น · แตะเพื่อขยาย</small></button>
+        <div class="copy"><p>แอบเขิน ๆ เหมือนกันนะ แต่ก็สนุกดี</p><p>เพราะสุดท้ายแล้ว สิ่งที่ทำให้วันนั้นพิเศษ อาจไม่ใช่หนังที่เราดู</p><h3>แต่เป็นเพราะ... เราได้ใช้เวลาด้วยกัน</h3></div>
+      </section>
+
+      <section class="scene memories-scene" id="scene-5" data-scene="5">
+        <p class="eyebrow">OUR LITTLE MEMORIES</p><h2>ช่วงเวลาธรรมดา<br />ที่พิเศษเสมอ</h2>
+        <div class="gallery" id="gallery"><button class="gallery-card active cinematic-photo" data-photo="วันที่หัวเราะด้วยกัน" data-photo-src="media/photo-system-update/scene-05-memory-01.jpg" aria-label="เปิดดูรูปวันที่หัวเราะด้วยกัน"><img src="media/photo-system-update/scene-05-memory-01.jpg" alt="วันที่หัวเราะด้วยกัน" loading="lazy" /></button><button class="gallery-card cinematic-photo" data-photo="วันที่ได้ไปเที่ยวด้วยกัน" data-photo-src="media/photo-system-update/scene-05-memory-02.jpg" aria-label="เลือกความทรงจำวันที่ได้ไปเที่ยวด้วยกัน"><img src="media/photo-system-update/scene-05-memory-02.jpg" alt="วันที่ได้ไปเที่ยวด้วยกัน" loading="lazy" /></button><button class="gallery-card cinematic-photo" data-photo="วันธรรมดาของเรา" data-photo-src="media/photo-system-update/scene-05-memory-03.jpg" aria-label="เลือกความทรงจำวันธรรมดาของเรา"><img src="media/photo-system-update/scene-05-memory-03.jpg" alt="วันธรรมดาของเรา" loading="lazy" /></button><span class="memory-caption" id="memoryCaption" aria-live="polite"></span></div>
+        <div class="gallery-controls"><button id="previousPhoto" aria-label="รูปก่อนหน้า">←</button><span id="galleryIndex">01 / 03</span><button id="nextPhoto" aria-label="รูปถัดไป">→</button></div>
+        <p class="key-line">เพราะความรักไม่ได้มีแค่วันที่เราจำได้ดีที่สุด<br />แต่มันคือทุกวันธรรมดาที่เราเคยมีให้กันด้วย</p>
+      </section>
+
+      <section class="scene conflict-scene" id="scene-6" data-scene="6"><p class="eyebrow">NOT EVERY DAY WAS PERFECT</p><div class="copy"><p>ความรักของเราไม่ได้มีแต่วันที่สวยงาม เราเคยทะเลาะกัน <span class="mobile-keep-line">เคยไม่เข้าใจกัน และเคยเหนื่อย</span></p><p>บางครั้งเฟิร์นยอม บางครั้งเติ้ลยอม แต่สุดท้าย<span class="mobile-keep-line">เราก็เลือกที่จะเคลียร์ใจและปรับเข้าหากัน</span></p><h3><span class="mobile-keep-line">การรักกันไม่ได้แปลว่าเราจะไม่ทะเลาะกัน</span><br />แต่มันคือการที่เรายังอยากเข้าใจกัน หลังจากที่ทะเลาะกัน</h3></div></section>
+
+      <section class="scene distance-scene" id="scene-7" data-scene="7"><p class="eyebrow">THE DISTANCE</p><div class="connection"><div><b>กรุงเทพฯ</b><span>เติ้ล</span></div><div class="line"><i></i></div><div><b>ลำปาง</b><span>เฟิร์น</span></div></div><div class="copy"><p>แล้วระยะทางก็เข้ามา เฟิร์นได้มหาวิทยาลัยที่ลำปาง <span class="mobile-keep-line">ส่วนเติ้ลอยู่ที่กรุงเทพฯ</span></p><h2>กรุงเทพฯ <em>↔</em> ลำปาง</h2></div></section>
+
+      <section class="scene distance-scene hopeful" id="scene-8" data-scene="8"><p class="eyebrow">DISTANCE DOESN'T END THE STORY</p><div class="copy"><p>บางวันก็คิดถึง บางวันก็อยากเจอ บางวันก็อยากอยู่ข้าง ๆ กัน แต่ทำได้แค่คุยกันผ่านหน้าจอ</p><p>มันอาจเป็นช่วงเวลาที่ยากที่สุดช่วงหนึ่งของเรา</p><h3>ต่อให้เราอยู่ไกลกันแค่ไหน<br />เราก็ยังเลือกที่จะอยู่ข้างกันได้</h3></div></section>
+
+      <section class="scene today-scene" id="scene-9" data-scene="9"><p class="date">29 กันยายน 2569</p><p class="eyebrow">TODAY</p><div class="duration">6 <span>ปี</span> 2 <span>เดือน</span></div><button class="today-photo cinematic-photo" data-photo="ภาพของเราวันนี้" data-photo-src="media/photo-system-update/scene-09.jpg" aria-label="เปิดดูภาพของเราวันนี้"><img src="media/photo-system-update/scene-09.jpg" alt="ภาพของเราวันนี้" loading="lazy" /></button><div class="copy"><p>จากข้อความหนึ่งข้อความ มาถึงวันนี้ เราเจอกัน หัวเราะ ทะเลาะ ปรับความเข้าใจกัน คิดถึงกัน และผ่านระยะทางมาด้วยกัน</p><h2>แต่มีสิ่งหนึ่งที่ยังเหมือนเดิม</h2><h3>เติ้ลยังรักเฟิร์น</h3></div></section>
+
+      <section class="scene letter-scene" id="scene-10" data-scene="10"><p class="eyebrow">PERSONAL LETTER</p><article class="letter" aria-live="polite"><h2 id="letterIntro"></h2><div class="letter-body" id="letterBody"></div><p class="letter-signature" id="letterSignature"></p></article></section>
+
+      <section class="scene fake-ending" id="scene-11" data-scene="11"><div class="copy"><h2>ตลอด 6 ปีที่ผ่านมา<br />มีสิ่งหนึ่งที่ไม่เคยเปลี่ยน...</h2><p>คือความรู้สึกของเติ้ลที่มีให้เฟิร์น</p><h3>คิดว่าเรื่องราวของเราจะจบแค่นี้เหรอ?</h3><p>ยังมีอีกอย่างที่เติ้ลอยากให้เฟิร์นเห็น...</p></div><button class="fake-end-button" id="fakeEndButton" type="button">End</button></section>
+
+      <section class="scene countdown-scene" id="scene-12" data-scene="12"><p class="eyebrow">ARE YOU READY?</p><div id="countdownNumber">10</div><button class="primary-button" id="countdownStart">เริ่มนับถอยหลัง</button><p class="countdown-note" id="countdownNote">พร้อมแล้วใช่มั้ย</p></section>
+
+      <section class="scene video-scene locked" id="scene-13" data-scene="13"><p class="eyebrow">A LITTLE SOMETHING</p><h2>สิ่งที่เติ้ลอยากบอกเฟิร์น...</h2><button class="primary-button" id="openVideo" disabled>เปิดดูสิ ❤️</button><p class="video-status" id="videoStatus"></p></section>
+
+      <section class="scene after-video" id="scene-14" data-scene="14"><button class="photo-frame cinematic-photo" data-photo="ภาพของเราวันนี้" data-photo-src="media/photo-system-update/scene-14.jpg" aria-label="เปิดดูรูปของเราวันนี้"><img src="media/photo-system-update/scene-14.jpg" alt="ภาพของเราวันนี้" loading="lazy" /></button><div class="copy"><h2>6 ปี 2 เดือนที่ผ่านมา ขอบคุณที่อยู่ในทุกช่วงเวลา<span class="mobile-keep-line">ของเรื่องราวนี้กับเติ้ล</span></h2><p>ทั้งวันที่ดี และวันที่ไม่ค่อยดี<br />ทั้งวันที่เราอยู่ใกล้กัน และวันที่เราอยู่ไกลกัน</p><h3>ก็คือการที่ทุกช่วงเวลานั้น มีเฟิร์นอยู่ในนั้น</h3></div></section>
+
+      <section class="scene secret-scene" id="scene-15" data-scene="15"><button class="secret-trigger" id="secretTrigger">✦</button><p class="secret-hint">บางที ดาวดวงเล็ก ๆ ก็มีเรื่องอยากเล่า</p><div class="secret-content" id="secretContent"><button class="photo-frame cinematic-photo" data-photo="ความทรงจำลับ" data-photo-src="media/photo-system-update/secret-memory.jpg" aria-label="เปิดดูความทรงจำลับ"><img src="media/photo-system-update/secret-memory.jpg" alt="ความทรงจำลับของเรา" loading="lazy" /></button><h2>เจอแล้วนะ ❤️</h2><p>เติ้ลอาจไม่รู้หรอกว่า อีก 1 ปี 2 ปี หรืออีกกี่ปีข้างหน้า <span class="mobile-keep-line">เรื่องราวของเราจะเป็นยังไง</span></p><h3>แต่ถ้าให้เลือกได้...<br />เติ้ลก็ยังอยากให้คนข้าง ๆ เป็นเฟิร์น</h3></div></section>
+
+      <section class="scene final-scene" id="scene-16" data-scene="16"><div class="final-intro"><p>ขอบคุณที่เข้ามาเป็นส่วนหนึ่งของชีวิตเติ้ลนะ</p><p>และขอบคุณสำหรับความรักทั้งหมดที่เราให้กันมาตลอด <span class="mobile-keep-line">6 ปี 2 เดือน</span></p></div><p class="final-question">“ถ้าเรื่องราวของเรายังมีอีกหลายบทให้เขียน...”</p><h2 class="final-line" aria-label="“เติ้ลก็ยังอยากเขียนมันต่อไปกับเฟิร์น”"><span class="mobile-final-quote-line">“เติ้ลก็ยังอยาก</span><span class="mobile-final-quote-line mobile-final-quote-indent">เขียนมันต่อไปกับเฟิร์น”</span></h2></section>
+
+      <section class="scene fade-scene" id="scene-17" data-scene="17"><p class="signature">— เติ้ล</p><p>Happy Anniversary, Fern.</p><p>รักนะ ❤️</p><span>THE END</span></section>
+    </main>
+    <dialog id="photoDialog"><button class="close-dialog" aria-label="ปิด">×</button><div id="dialogPhoto"></div><p id="dialogCaption"></p></dialog>
+    <dialog id="videoDialog"><button class="close-dialog" aria-label="ปิด">×</button><video id="surpriseVideo" controls playsinline preload="metadata"><source src="surprise-video.mp4" type="video/mp4" /></video></dialog>
+    <script src="audio-system.js?v=20260923-opening-web-audio-ready-55"></script>
+    <script src="app.js?v=20260923-opening-web-audio-ready-55"></script>
+  </body>
+</html>

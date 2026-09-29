@@ -1,0 +1,1245 @@
+/* Prata is used only for Latin display text: it does not contain Thai shaping data. */
+.chat-card p,
+.final-line,
+.fade-scene p:nth-child(1) {
+  font-family: "Noto Serif Thai", "Noto Sans Thai", serif;
+  font-weight: 500;
+}
+
+.chat-card p {
+  line-height: 1.55;
+}
+
+.chat-card p.typing-indicator {
+  letter-spacing: 0.28em;
+  animation: chatTypingPulse 0.8s ease-in-out infinite;
+}
+
+#scene-2 .scene2-lower-line {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+#scene-2 .scene2-lower-line.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes chatTypingPulse {
+  50% { opacity: 0.42; }
+}
+
+/* Scene 03: a slightly larger, restrained first-day photograph. */
+#scene-3 .photo-frame {
+  width: min(86vw, 475px);
+  border-color: rgb(217 184 117 / 48%);
+  box-shadow:
+    10px 12px 0 rgb(217 184 117 / 8%),
+    0 20px 48px rgb(0 0 0 / 18%);
+}
+
+#scene-3 .cinematic-photo {
+  opacity: 0;
+  transform: scale(1.02);
+  animation: none;
+}
+
+#scene-3.scene3-revealed .cinematic-photo {
+  animation: cinematicPhotoReveal 1.4s ease-out both;
+}
+
+#scene-3 .copy p,
+#scene-3 .copy h2 {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+#scene-3.scene3-revealed .copy p {
+  animation: scene3StoryReveal .9s ease-out 2s forwards;
+}
+
+#scene-3.scene3-revealed .copy h2 {
+  animation: scene3StoryReveal .95s ease-out 3.15s forwards;
+}
+
+@keyframes scene3StoryReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scene 04: one quiet photo slot that echoes the cinema frame without competing with it. */
+.movie-photo {
+  width: min(72vw, 330px);
+  aspect-ratio: 3 / 2;
+  margin-top: 26px;
+  display: grid;
+  place-content: center;
+  gap: 8px;
+  border: 1px solid rgb(217 184 117 / 52%);
+  background:
+    linear-gradient(135deg, rgb(217 184 117 / 14%), transparent 44%),
+    #0b1230;
+  color: var(--gold);
+  box-shadow: 9px 9px 0 rgb(217 184 117 / 8%);
+}
+
+/* Scene 04: let the original ticket arrive before its memory is told. */
+#scene-4 .movie-photo {
+  width: min(78vw, 380px);
+  opacity: 0;
+  transform: scale(1.02);
+  animation: none;
+}
+
+#scene-4.scene4-revealed .movie-photo {
+  animation: cinematicPhotoReveal 1.4s ease-out both;
+}
+
+#scene-4 .copy p,
+#scene-4 .copy h3 {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+#scene-4.scene4-revealed .copy p:nth-child(1) {
+  animation: scene4StoryReveal .9s ease-out 2.05s forwards;
+}
+
+#scene-4.scene4-revealed .copy p:nth-child(2) {
+  animation: scene4StoryReveal .9s ease-out 5.95s forwards;
+}
+
+#scene-4.scene4-revealed .copy h3 {
+  animation: scene4StoryReveal .95s ease-out 11.85s forwards;
+}
+
+@keyframes scene4StoryReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.movie-photo span {
+  font-family: Prata, serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.09em;
+}
+
+.movie-photo small {
+  color: var(--muted);
+  font: 400 0.68rem "Noto Sans Thai", sans-serif;
+}
+
+.movie-photo:hover,
+.movie-photo:focus-visible {
+  border-color: var(--gold);
+  background-color: #111a36;
+}
+
+/* Real photos retain the same restrained frames as the placeholders. */
+.photo-frame,
+.gallery-card,
+.movie-photo {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-frame img,
+.gallery-card img,
+.movie-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-frame small,
+.movie-photo small {
+  position: absolute;
+  inset: auto 12px 10px;
+  z-index: 1;
+  padding: 4px 8px;
+  background: rgb(7 11 27 / 60%);
+  border-radius: 99px;
+}
+
+.movie-photo img {
+  position: absolute;
+  inset: 0;
+  opacity: 0.86;
+}
+
+#dialogPhoto img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.audio-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgb(255 255 255 / 20%);
+  border-radius: 50%;
+  background: rgb(7 11 27 / 60%);
+  color: var(--gold);
+}
+
+.audio-toggle[aria-pressed="true"] {
+  color: var(--muted);
+}
+
+/* Real-photo treatment: restrained reveal, natural proportions, no face crops. */
+.cinematic-photo {
+  animation: cinematicPhotoReveal 1.5s ease-out both;
+}
+
+.cinematic-photo img {
+  object-fit: contain;
+  background: #090d20;
+}
+
+@keyframes cinematicPhotoReveal {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.movie-photo img {
+  object-fit: contain;
+  opacity: 1;
+}
+
+.gallery {
+  display: grid;
+  position: relative;
+  grid-template-columns: minmax(0, 2fr) minmax(86px, 1fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  width: min(86vw, 680px);
+  height: min(63vw, 400px);
+  margin: 24px 0;
+}
+
+.gallery-card,
+.gallery-card.active {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  opacity: .5;
+  border-color: rgb(230 233 240 / 22%);
+  cursor: pointer;
+  transform: none;
+  transition: opacity .8s ease, border-color .8s ease, filter .8s ease;
+}
+
+.gallery-card.active {
+  grid-column: 1;
+  grid-row: 1 / span 2;
+  opacity: 1;
+  z-index: 1;
+  border-color: rgb(217 184 117 / 72%);
+  filter: brightness(1.03);
+}
+
+.gallery-card.preview-one {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.gallery-card.preview-two {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.gallery-card img {
+  display: block;
+  object-fit: cover;
+}
+
+.gallery-card.active img {
+  object-fit: contain;
+  background: #090d20;
+}
+
+.memory-caption {
+  position: absolute;
+  inset: auto calc(33.333% + 8px) 0 0;
+  z-index: 2;
+  width: 100%;
+  padding: 28% 14px 14px;
+  color: var(--champagne);
+  text-align: left;
+  font: 500 clamp(.82rem, 2.3vw, 1rem) "Noto Serif Thai", "Noto Sans Thai", serif;
+  line-height: 1.55;
+  background: linear-gradient(transparent, rgb(5 7 17 / 84%));
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity .65s ease, transform .65s ease;
+  pointer-events: none;
+}
+
+.memory-caption.is-changing {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+#scene-5 .key-line {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+#scene-5 .key-line.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Scene 06: leave the difficult moments clear, quiet, and unobstructed. */
+.conflict-scene::before {
+  display: block;
+  top: auto;
+  left: auto;
+  width: 80vw;
+  height: 1px;
+  transform: rotate(-10deg);
+  opacity: 1;
+}
+
+#scene-6 .eyebrow,
+#scene-6 .copy p,
+#scene-6 .copy h3 {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+#scene-6.scene6-revealed .eyebrow {
+  animation: scene6Reveal .85s ease-out forwards;
+}
+
+#scene-6.scene6-revealed .copy p:nth-child(1),
+#scene-6.scene6-revealed .copy p:nth-child(2) {
+  animation: scene6Reveal .9s ease-out 1.45s forwards;
+}
+
+#scene-6.scene6-revealed .copy h3 {
+  animation: scene6Reveal 1s ease-out 16.35s forwards;
+  color: var(--champagne);
+}
+
+@keyframes scene6Reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scene 07: distance unfolds from two places toward one shared line. */
+#scene-7 .eyebrow,
+#scene-7 .connection > div:not(.line),
+#scene-7 .connection .line,
+#scene-7 .copy p,
+#scene-7 .copy h2 {
+  opacity: 0;
+}
+
+#scene-7 .connection > div:not(.line),
+#scene-7 .copy p {
+  transform: translateY(10px);
+}
+
+#scene-7 .connection .line {
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+#scene-7.scene7-revealed .eyebrow {
+  animation: scene7Fade .85s ease-out forwards;
+}
+
+#scene-7.scene7-revealed .connection > div:not(.line) {
+  animation: scene7Rise .9s ease-out 1.5s forwards;
+}
+
+#scene-7.scene7-revealed .connection .line {
+  animation: scene7Line .9s ease-out 2.55s forwards;
+}
+
+#scene-7.scene7-revealed .connection .line i {
+  animation: scene7DotPulse 3.4s ease-in-out 3.1s infinite;
+}
+
+#scene-7.scene7-revealed .copy p {
+  animation: scene7Rise .9s ease-out 4.1s forwards;
+}
+
+#scene-7.scene7-revealed .copy h2 {
+  animation: scene7Distance 1.15s ease-out 5.5s forwards;
+}
+
+@keyframes scene7Fade {
+  to { opacity: 1; }
+}
+
+@keyframes scene7Rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scene7Line {
+  to { opacity: 1; transform: scaleX(1); }
+}
+
+@keyframes scene7Distance {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes scene7DotPulse {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: .9; }
+  50% { transform: translate(-50%, -50%) scale(1.22); opacity: .58; }
+}
+
+/* Scene 08: the words arrive slowly, as distance gives way to choosing each other. */
+#scene-8 .eyebrow,
+#scene-8 .copy p,
+#scene-8 .copy h3 {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+#scene-8.scene8-revealed .eyebrow {
+  animation: scene8Fade .85s ease-out forwards;
+}
+
+#scene-8.scene8-revealed .copy p:nth-child(1) {
+  animation: scene8Rise .9s ease-out 1.55s forwards;
+}
+
+#scene-8.scene8-revealed .copy p:nth-child(2) {
+  animation: scene8Rise .9s ease-out 8.45s forwards;
+}
+
+#scene-8.scene8-revealed .copy h3 {
+  animation: scene8Promise 1.25s ease-out 14.35s forwards;
+}
+
+@keyframes scene8Fade {
+  to { opacity: 1; }
+}
+
+@keyframes scene8Rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scene8Promise {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Scene 09: arrive at today before letting the present speak for itself. */
+#scene-9 > .date,
+#scene-9 > .eyebrow,
+#scene-9 > .duration,
+#scene-9 > .today-photo,
+#scene-9 > .copy p,
+#scene-9 > .copy h2,
+#scene-9 > .copy h3 {
+  opacity: 0;
+}
+
+#scene-9 > .today-photo,
+#scene-9 > .copy p,
+#scene-9 > .copy h2,
+#scene-9 > .copy h3 {
+  transform: translateY(10px);
+}
+
+#scene-9 > .duration {
+  transform: scale(1.03);
+}
+
+#scene-9 > .today-photo {
+  animation: none;
+}
+
+#scene-9.scene9-revealed > .date {
+  animation: scene9Fade .85s ease-out forwards;
+}
+
+#scene-9.scene9-revealed > .eyebrow {
+  animation: scene9Fade .85s ease-out 1.4s forwards;
+}
+
+#scene-9.scene9-revealed > .duration {
+  animation: scene9Duration 1.15s ease-out 2.4s forwards;
+}
+
+#scene-9.scene9-revealed > .today-photo {
+  animation: scene9Rise 1.2s ease-out 4.2s forwards;
+}
+
+#scene-9.scene9-revealed > .copy p {
+  animation: scene9Rise .9s ease-out 5.7s forwards;
+}
+
+#scene-9.scene9-revealed > .copy h2 {
+  animation: scene9Rise 1s ease-out 12.6s forwards;
+}
+
+#scene-9.scene9-revealed > .copy h3 {
+  animation: scene9Rise 1.15s ease-out 17.6s forwards;
+}
+
+@keyframes scene9Fade {
+  to { opacity: 1; }
+}
+
+@keyframes scene9Duration {
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes scene9Rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scene 11: the ending waits for one quiet tap. */
+#scene-11 .copy h2,
+#scene-11 .copy p,
+#scene-11 .copy h3,
+#fakeEndButton {
+  opacity: 0;
+}
+
+#scene-11 .copy h2,
+#scene-11 .copy p {
+  transform: translateY(10px);
+}
+
+#scene-11.fake-ending-ready .copy h2 {
+  animation: fakeEndingReveal .95s ease-out forwards;
+}
+
+#scene-11.fake-ending-ready .copy p:nth-child(2) {
+  animation: fakeEndingReveal .9s ease-out 1.65s forwards;
+}
+
+.fake-end-button {
+  position: absolute;
+  right: clamp(22px, 5vw, 56px);
+  bottom: clamp(24px, 6vh, 62px);
+  z-index: 2;
+  padding: 5px 10px;
+  border: 1px solid rgb(217 184 117 / 42%);
+  border-radius: 0;
+  background: transparent;
+  color: rgb(247 234 208 / 74%);
+  font: 500 .68rem "DM Sans", sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  transition: opacity .45s ease, border-color .25s ease, color .25s ease;
+}
+
+#scene-11.fake-ending-ready #fakeEndButton {
+  animation: fakeEndButtonReveal .75s ease-out 2.75s forwards;
+}
+
+.fake-end-button:hover,
+.fake-end-button:focus-visible {
+  border-color: rgb(217 184 117 / 75%);
+  color: var(--champagne);
+}
+
+#scene-11.fake-ending-opened #fakeEndButton {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#scene-11.fake-ending-opened .copy h3 {
+  animation: fakeEndingReveal 1.05s ease-out forwards;
+}
+
+#scene-11.fake-ending-opened .copy p:nth-child(4) {
+  animation: fakeEndingReveal .9s ease-out .7s forwards;
+}
+
+@keyframes fakeEndingReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fakeEndButtonReveal {
+  to { opacity: .78; }
+}
+
+/* Scene 12: one calm breath and one heartbeat for every number. */
+#scene-12 #countdownStart,
+#scene-12 #countdownNote {
+  transition: opacity .65s ease-out, transform .65s ease-out;
+}
+
+#scene-12.countdown-running #countdownStart,
+#scene-12.countdown-running #countdownNote {
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+
+#countdownNumber.countdown-number-in {
+  animation: countdownNumberIn .42s ease-out both;
+}
+
+@keyframes countdownNumberIn {
+  from { opacity: 0; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Scene 14: one image, then the meaning that has gathered around it. */
+#scene-14 .cinematic-photo,
+#scene-14 .copy h2,
+#scene-14 .copy p,
+#scene-14 .copy h3 {
+  opacity: 0;
+}
+
+#scene-14 .cinematic-photo {
+  transform: scale(1.02);
+  animation: none;
+}
+
+#scene-14 .copy h2,
+#scene-14 .copy p,
+#scene-14 .copy h3 {
+  transform: translateY(10px);
+}
+
+#scene-14.scene14-revealed .cinematic-photo {
+  animation: cinematicPhotoReveal 1.45s ease-out forwards;
+}
+
+#scene-14.scene14-revealed .copy h2 {
+  animation: scene14Reveal 1s ease-out 1.95s forwards;
+}
+
+#scene-14.scene14-revealed .copy p {
+  animation: scene14Reveal .9s ease-out 6.95s forwards;
+}
+
+#scene-14.scene14-revealed .copy h3 {
+  animation: scene14Reveal 1.4s ease-out 12.85s forwards;
+}
+
+@keyframes scene14Reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+.today-photo {
+  width: min(72vw, 390px);
+  max-height: min(43svh, 410px);
+  margin: 18px 0 12px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgb(217 184 117 / 38%);
+  border-radius: 3px;
+  background: #090d20;
+  box-shadow: 0 12px 32px rgb(0 0 0 / 24%);
+  animation: todayPhotoReveal 1.4s ease-out both;
+}
+
+.today-photo img {
+  display: block;
+  width: 100%;
+  max-height: min(43svh, 410px);
+  object-fit: contain;
+  filter: contrast(.98) saturate(.98);
+}
+
+/* Scene 10: a quiet reading surface, intentionally separate from the story UI. */
+.opening::before {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image:
+    radial-gradient(circle, rgb(247 234 208 / 48%) 0 1px, transparent 1.8px),
+    radial-gradient(circle, rgb(217 184 117 / 34%) 0 .8px, transparent 1.6px);
+  background-size: 170px 190px, 245px 220px;
+  background-position: 14px 26px, 76px 98px;
+  animation: openingParticles 42s ease-in-out infinite alternate;
+}
+
+#scene-1 .reveal {
+  opacity: 0;
+  animation-duration: 1.6s;
+  animation-timing-function: cubic-bezier(.22, .61, .36, 1);
+  animation-fill-mode: forwards;
+}
+
+#scene-1 .eyebrow.reveal {
+  animation-name: openingGentleFade;
+  animation-delay: .35s;
+}
+
+#scene-1 h1.reveal {
+  animation-name: openingNameReveal;
+  animation-delay: .95s;
+}
+
+#scene-1 .subtitle.reveal {
+  animation-name: openingGentleFade;
+  animation-delay: 1.65s;
+}
+
+#scene-1 #startStory.reveal {
+  animation-name: openingButtonReveal;
+  animation-delay: 2.35s;
+}
+
+#scene-1 .scroll-hint.reveal {
+  animation-name: openingGentleFade;
+  animation-delay: 2.75s;
+}
+
+@keyframes openingParticles {
+  from { transform: translate3d(-.35%, -.45%, 0); }
+  to { transform: translate3d(.35%, .45%, 0); }
+}
+
+@keyframes openingGentleFade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes openingNameReveal {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes openingButtonReveal {
+  from { opacity: 0; box-shadow: 0 0 0 transparent; }
+  to { opacity: 1; box-shadow: 0 0 18px rgb(217 184 117 / 10%); }
+}
+
+.letter-scene {
+  min-height: 100svh;
+  overflow: visible;
+  justify-content: flex-start;
+  padding-top: 13vh;
+  padding-bottom: 16vh;
+  background: radial-gradient(ellipse at 50% 20%, rgb(217 184 117 / 9%), transparent 44%);
+}
+
+.letter-scene .eyebrow {
+  margin-bottom: 22px;
+}
+
+.letter {
+  width: min(100%, 660px);
+  padding: clamp(30px, 8vw, 64px) clamp(22px, 7vw, 60px);
+  text-align: left;
+  background: linear-gradient(145deg, rgb(247 234 208 / 6%), rgb(7 11 27 / 12%));
+  border: 1px solid rgb(217 184 117 / 28%);
+  box-shadow: 0 24px 70px rgb(0 0 0 / 18%);
+}
+
+.letter h2 {
+  margin: 0 0 28px;
+  color: var(--champagne);
+  font-family: "Noto Serif Thai", "Noto Sans Thai", serif;
+  font-size: clamp(1.65rem, 5vw, 2.45rem);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.letter-revealing .letter h2 {
+  animation: letterReveal 1s ease-out forwards;
+}
+
+.letter-body {
+  display: grid;
+  gap: 1.35em;
+}
+
+.letter-paragraph {
+  margin: 0;
+  color: rgb(230 233 240 / 90%);
+  font-size: clamp(1rem, 2.9vw, 1.1rem);
+  line-height: 2;
+  opacity: 0;
+  transform: translateY(8px);
+  white-space: pre-line;
+}
+
+.letter-paragraph.is-visible,
+.letter-signature.is-visible {
+  animation: letterReveal 1s ease-out forwards;
+}
+
+.letter-signature {
+  margin: 2.35em 0 .3em;
+  color: var(--champagne);
+  text-align: right;
+  font-family: "Noto Serif Thai", "Noto Sans Thai", serif;
+  font-size: 1.05rem;
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+@keyframes letterReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scene 13: the uploaded video remains the only visual focus. */
+#videoDialog {
+  width: min(96vw, 1100px);
+  max-width: 96vw;
+  padding: clamp(10px, 2vw, 18px);
+  background: #03050d;
+  border-color: rgb(217 184 117 / 42%);
+}
+
+#surpriseVideo {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  max-height: min(82svh, 820px);
+  margin: 0 auto;
+  background: #000;
+  object-fit: contain;
+}
+
+@keyframes todayPhotoReveal {
+  from { opacity: 0; transform: translateY(10px) scale(1.015); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.secret-content.show .photo-frame {
+  animation: cinematicPhotoReveal 1.25s ease-out both;
+}
+
+/* Scene 15: the secret stays hidden until its star is chosen. */
+#scene-15.secret-opening .secret-trigger,
+#scene-15.secret-opening .secret-hint {
+  opacity: 0;
+  transition: opacity .65s ease-out;
+}
+
+#scene-15 .secret-content.show {
+  animation: none;
+}
+
+#scene-15 .secret-content.show > * {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+#scene-15 .secret-content.show .photo-frame {
+  transform: scale(1.02);
+  animation: secretPhotoReveal 1.45s ease-out forwards;
+}
+
+#scene-15 .secret-content.show h2 {
+  animation: secretTextReveal .95s ease-out 1.95s forwards;
+}
+
+#scene-15 .secret-content.show p {
+  animation: secretTextReveal .9s ease-out 3.35s forwards;
+}
+
+#scene-15 .secret-content.show h3 {
+  animation: secretTextReveal 1.4s ease-out 8.75s forwards;
+}
+
+@keyframes secretPhotoReveal {
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes secretTextReveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scene 16: let gratitude stay present before the final promise takes focus. */
+.final-scene.active .final-line {
+  animation-delay: 15s;
+}
+
+.final-scene.active .final-intro {
+  animation-delay: 15s;
+}
+
+/* Mobile refinement: retain the approved composition while giving every scene
+   safe edges, natural Thai wrapping, and reliable tap targets. */
+@media (min-width: 720px) {
+  /* Desktop safe area: retain the approved composition while bringing only
+     the final copy blocks clear of the lower viewport edge. */
+  #scene-9 > .copy,
+  #scene-14 > .copy {
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 719px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .scene {
+    min-height: 100svh;
+    padding: clamp(54px, 8svh, 74px) clamp(18px, 6vw, 28px);
+  }
+
+  .scene > * {
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: clamp(2.65rem, 14vw, 4.2rem);
+    line-height: 1.28;
+  }
+
+  h2 {
+    font-size: clamp(1.58rem, 7.2vw, 2.25rem);
+    line-height: 1.42;
+  }
+
+  h3 {
+    font-size: clamp(1.2rem, 5.7vw, 1.65rem);
+    line-height: 1.55;
+  }
+
+  .copy {
+    width: min(100%, 620px);
+    margin-top: 28px;
+  }
+
+  .copy p,
+  .letter-paragraph,
+  .final-intro p,
+  .final-question {
+    overflow-wrap: anywhere;
+    word-break: normal;
+  }
+
+  .primary-button,
+  .gallery-controls button,
+  .fake-end-button,
+  .secret-trigger,
+  .close-dialog,
+  .photo-frame,
+  .movie-photo,
+  .gallery-card {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .primary-button {
+    min-height: 46px;
+    padding: 12px 23px;
+  }
+
+  .chat-card {
+    width: min(100%, 520px);
+    padding: clamp(20px, 6vw, 27px);
+  }
+
+  .chat-card p {
+    font-size: clamp(1.65rem, 8.8vw, 2.35rem);
+    overflow-wrap: anywhere;
+  }
+
+  #scene-3 .photo-frame,
+  #scene-14 .photo-frame,
+  #scene-15 .photo-frame {
+    width: min(88vw, 430px);
+  }
+
+  #scene-4 .movie-photo {
+    width: min(84vw, 380px);
+    max-height: 42svh;
+  }
+
+  .film-strip {
+    width: 100%;
+    padding: 16px 12px;
+  }
+
+  .gallery {
+    width: min(100%, 680px);
+    height: min(64vw, 380px);
+    min-height: 210px;
+    gap: 7px;
+    margin: 20px 0;
+  }
+
+  .gallery-card {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .memory-caption {
+    inset: auto calc(33.333% + 7px) 0 0;
+    padding: 26% 10px 10px;
+    font-size: clamp(.78rem, 3.3vw, .96rem);
+  }
+
+  .gallery-controls {
+    min-height: 46px;
+    gap: 14px;
+  }
+
+  .gallery-controls button {
+    display: grid;
+    width: 46px;
+    height: 46px;
+    place-items: center;
+  }
+
+  #scene-5 .key-line {
+    margin-top: 24px;
+    font-size: clamp(.92rem, 4vw, 1rem);
+    line-height: 1.8;
+  }
+
+  .connection {
+    width: min(100%, 620px);
+    margin: 30px 0 8px;
+  }
+
+  .connection b {
+    font-size: clamp(1rem, 5vw, 1.35rem);
+  }
+
+  .duration {
+    font-size: clamp(3.25rem, 18vw, 5.2rem);
+    white-space: nowrap;
+  }
+
+  .today-photo {
+    width: min(82vw, 390px);
+    max-height: min(41svh, 390px);
+  }
+
+  .today-photo img {
+    max-height: min(41svh, 390px);
+  }
+
+  .letter-scene {
+    padding-top: 54px;
+    padding-bottom: 64px;
+  }
+
+  .letter {
+    width: 100%;
+    padding: 28px clamp(18px, 6vw, 28px);
+  }
+
+  .letter-paragraph {
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+
+  .fake-end-button {
+    right: 14px;
+    bottom: max(14px, env(safe-area-inset-bottom));
+    min-width: 44px;
+    min-height: 44px;
+    padding: 5px 10px;
+  }
+
+  #scene-12 #countdownNumber {
+    font-size: clamp(7rem, 38vw, 11rem);
+  }
+
+  /* Step 9B: portrait safe-area refinement for the four confirmed scenes.
+     These rules leave desktop and landscape compositions untouched. */
+  @media (orientation: portrait) {
+    #scene-3,
+    #scene-9,
+    #scene-14 {
+      justify-content: flex-start;
+      padding-top: max(4svh, env(safe-area-inset-top));
+      padding-bottom: max(4svh, env(safe-area-inset-bottom));
+    }
+
+    #scene-3 .photo-frame,
+    #scene-14 .photo-frame {
+      width: min(76vw, 360px);
+    }
+
+    #scene-3 .copy,
+    #scene-14 .copy {
+      margin-top: clamp(14px, 2.4svh, 22px);
+    }
+
+    #scene-9 .today-photo,
+    #scene-9 .today-photo img {
+      max-height: 33svh;
+    }
+
+    #scene-9 .today-photo {
+      margin: clamp(10px, 1.8svh, 16px) 0 clamp(4px, 1svh, 9px);
+    }
+
+    #scene-9 .copy {
+      margin-top: clamp(10px, 1.6svh, 14px);
+    }
+
+    #scene-12 {
+      min-height: 100dvh;
+      background-color: #000;
+      isolation: isolate;
+      z-index: 6;
+    }
+
+    /* Typography stays natural on narrow displays; phrases gain an
+       unbroken line only when the iPhone-width safe area can contain them. */
+    #scene-14 .copy h3,
+    #scene-16 .final-question {
+      text-wrap: balance;
+    }
+
+    #scene-16 .final-line {
+      max-width: min(100%, 22ch);
+      font-style: italic;
+      line-height: 1.5;
+    }
+
+    #scene-16 .mobile-final-quote-line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    #scene-16 .mobile-final-quote-indent {
+      margin-inline-start: .55em;
+    }
+  }
+
+  @media (min-width: 390px) and (orientation: portrait) {
+    .mobile-keep-line {
+      white-space: nowrap;
+    }
+
+    #scene-6 .copy h3 .mobile-keep-line {
+      font-size: .93em;
+      letter-spacing: -.02em;
+    }
+  }
+
+  #videoDialog {
+    width: min(100vw, 720px);
+    max-width: 100vw;
+    max-height: 100svh;
+    margin: auto;
+    padding: 8px;
+  }
+
+  #surpriseVideo {
+    width: 100%;
+    max-height: 86svh;
+  }
+
+  .close-dialog {
+    width: 44px;
+    height: 44px;
+    right: 0;
+    top: 0;
+  }
+
+  .secret-trigger {
+    min-width: 64px;
+    min-height: 64px;
+  }
+
+  .secret-content {
+    width: 100%;
+  }
+
+  .final-line {
+    font-size: clamp(1.65rem, 8vw, 2.65rem);
+    line-height: 1.48;
+  }
+}
+
+@media (max-width: 899px) and (orientation: landscape) {
+  .scene {
+    min-height: 100svh;
+    padding: 30px max(34px, 7vw);
+  }
+
+  h1 { font-size: clamp(2.45rem, 7vw, 4rem); }
+  h2 { font-size: clamp(1.45rem, 4.6vw, 2.1rem); }
+  h3 { font-size: clamp(1.1rem, 3.4vw, 1.55rem); }
+
+  .copy { margin-top: 18px; }
+
+  #scene-3 .photo-frame,
+  #scene-14 .photo-frame,
+  #scene-15 .photo-frame {
+    width: min(32vw, 330px);
+    max-height: 66svh;
+  }
+
+  #scene-4 .movie-photo {
+    width: min(34vw, 330px);
+    max-height: 46svh;
+  }
+
+  .gallery {
+    width: min(58vw, 620px);
+    height: min(47svh, 310px);
+    min-height: 170px;
+    margin: 12px 0;
+  }
+
+  .today-photo {
+    width: min(30vw, 320px);
+    max-height: 48svh;
+  }
+
+  .today-photo img { max-height: 48svh; }
+
+  .letter-scene {
+    padding-top: 28px;
+    padding-bottom: 36px;
+  }
+
+  .letter {
+    width: min(78vw, 660px);
+    padding: 24px 34px;
+  }
+
+  #scene-12 #countdownNumber {
+    font-size: clamp(6rem, 21vw, 10rem);
+  }
+
+  /* Landscape still uses touch input: retain the same comfortable hit areas
+     without changing the visual treatment of the controls. */
+  .gallery-controls button {
+    display: grid;
+    width: 44px;
+    height: 44px;
+    place-items: center;
+  }
+
+  .fake-end-button {
+    right: max(14px, env(safe-area-inset-right));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .close-dialog {
+    width: 44px;
+    height: 44px;
+  }
+
+  .secret-trigger {
+    min-width: 64px;
+    min-height: 64px;
+  }
+}
